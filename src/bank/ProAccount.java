@@ -42,6 +42,7 @@ public class ProAccount extends Account {
 	        }
 	    }
 	    s += "]";
+	    System.out.println("בדיקה");
 	    return s;
 	}
 }
