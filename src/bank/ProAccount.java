@@ -43,5 +43,6 @@ public class ProAccount extends Account {
 	    }
 	    s += "]";
 	    return s;
+	    
 	}
 }
