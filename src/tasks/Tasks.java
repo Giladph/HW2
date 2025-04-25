@@ -11,7 +11,7 @@ public class Tasks {
 	}
 
 	boolean dependsOn(int task1, int task2) {
-		
+		System.out.print("Try");
 		if (task1 < 0 || task1 >= num || task2 < 0 || task2 >= num) 
 			return false;
 			
@@ -19,19 +19,11 @@ public class Tasks {
 		
 		return true;
 			
-			
+		
 		}
 		
+	
+}
 		
 		
-		
-//	public void add() {
-//		int[] tempAmount = new int[totalAmount.length + 1];
-//		for (int i = 0; i < totalAmount.length; i++) {
-//			tempAmount[i] = totalAmount[i];
-//		}
-//		totalAmount = tempAmount;
-//	}
-	}
-
 
