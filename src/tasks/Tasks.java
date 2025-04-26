@@ -30,7 +30,7 @@ public class Tasks {
 			 int prevIndex = index; //for checking circles
 			for (int i = 0; i < num; i++) {
 				  if (graph[i][i] == -1) {
-		                continue; //  if we already checked the task
+		                continue; //  if we already checked the task continue
 		            }
 				count = 0;
 				for (int j = 0; j < num; j++) {
