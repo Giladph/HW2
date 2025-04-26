@@ -76,28 +76,28 @@ public class Tasks {
 
 
 
-// ====== הנה ה-main שהוספתי עבורך ======
-    public static void main(String[] args) {
-        Tasks t = new Tasks(6);
-
-        t.dependsOn(3, 2); // כדי לבצע 2 צריך קודם את 3
-        t.dependsOn(0, 3); // כדי לבצע 3 צריך קודם את 0
-        t.dependsOn(2, 5); // כדי לבצע 5 צריך קודם את 2
-        t.dependsOn(4, 5); // כדי לבצע 5 צריך קודם את 4
-        int[] order = t.order();
-
-        if (order != null) {
-            for (int i = 0; i < order.length; i++) {
-                System.out.print(order[i]);
-                if (i < order.length - 1) {
-                    System.out.print(", ");
-                }
-            }
-            System.out.println(); // מעבר שורה בסוף
-        } else {
-            System.out.println("There is a cycle, tasks cannot be ordered.");
-        }
-}
+//// ====== הנה ה-main שהוספתי עבורך ======
+//    public static void main(String[] args) {
+//        Tasks t = new Tasks(6);
+//
+//        t.dependsOn(3, 2); // כדי לבצע 2 צריך קודם את 3
+//        t.dependsOn(0, 3); // כדי לבצע 3 צריך קודם את 0
+//        t.dependsOn(2, 5); // כדי לבצע 5 צריך קודם את 2
+//        t.dependsOn(4, 5); // כדי לבצע 5 צריך קודם את 4
+//        int[] order = t.order();
+//
+//        if (order != null) {
+//            for (int i = 0; i < order.length; i++) {
+//                System.out.print(order[i]);
+//                if (i < order.length - 1) {
+//                    System.out.print(", ");
+//                }
+//            }
+//            System.out.println(); // מעבר שורה בסוף
+//        } else {
+//            System.out.println("There is a cycle, tasks cannot be ordered.");
+//        }
+//}
 }
 
 
