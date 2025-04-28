@@ -1,7 +1,7 @@
 package tasks;
 
 public class NamedTasks extends Tasks {
-	String[] names;
+	private String[] names;
 
 	public NamedTasks(String[] names) {
 		super(names.length);
@@ -39,7 +39,7 @@ public class NamedTasks extends Tasks {
  	
     	
     	
-    public int findIndex(String task) {
+    private int findIndex(String task) {
         for (int i = 0; i < names.length; i++) {
             if (names[i].equals(task)) {
                 return i;

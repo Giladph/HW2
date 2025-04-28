@@ -59,21 +59,21 @@ public class Tasks {
 	}
 	
 	
-	@Override
-	public String toString() {
-	    StringBuilder sb = new StringBuilder();
-	    sb.append("Tasks: [");
-
-	    for (int i = 0; i < tasks.length; i++) {
-	        sb.append(tasks[i]);
-	        if (i < tasks.length - 1) {
-	            sb.append(", ");
-	        }
-	    }
-
-	    sb.append("]");
-	    return sb.toString();
-	}
+//	@Override
+//	public String toString() {
+//	    StringBuilder sb = new StringBuilder();
+//	    sb.append("Tasks: [");
+//
+//	    for (int i = 0; i < tasks.length; i++) {
+//	        sb.append(tasks[i]);
+//	        if (i < tasks.length - 1) {
+//	            sb.append(", ");
+//	        }
+//	    }
+//
+//	    sb.append("]");
+//	    return sb.toString();
+//	}
 
 
 
