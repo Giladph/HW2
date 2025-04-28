@@ -21,24 +21,36 @@ public class NamedTasks extends Tasks {
 
 	}
 
-	
-	public int findIndex(String task) {
-		
-		for(int i=0; i<names.length; i++) {
-			
-			if(names[i].equals(task)) {
-				return i;
-			}
-			
-		return -1;
-		 
-			
-		}
-		
-		
-		
-	}
 
-}
+    	public String[] nameOrder() {
+    	    int[] order = super.order();
+    	    
+    	    if (order == null) {
+    	        return null;
+    	    }
+    	    
+    	    String[] nameOrder = new String[order.length];
+    	    for (int i = 0; i < order.length; i++) {
+    	        nameOrder[i] = names[order[i]];
+    	    }
+    	    
+    	    return nameOrder;
+    	}
+ 	
+    	
+    	
+    public int findIndex(String task) {
+        for (int i = 0; i < names.length; i++) {
+            if (names[i].equals(task)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+		
+		
+		
+
 
 }

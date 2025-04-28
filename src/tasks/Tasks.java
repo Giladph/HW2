@@ -59,7 +59,8 @@ public class Tasks {
 	}
 	
 	
-	public void printTasks() {
+	@Override
+	public String toString() {
 	    StringBuilder sb = new StringBuilder();
 	    sb.append("Tasks: [");
 
@@ -71,7 +72,7 @@ public class Tasks {
 	    }
 
 	    sb.append("]");
-	    System.out.println(sb.toString());
+	    return sb.toString();
 	}
 
 
