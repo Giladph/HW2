@@ -13,7 +13,7 @@ public class Tasks {
 		tasks = new int[num];
 	}
 
-	boolean dependsOn(int task1, int task2) {
+	public boolean dependsOn(int task1, int task2) {
 		if (task1 < 0 || task1 > num || task2 < 0 || task2 > num)
 			return false;
 
