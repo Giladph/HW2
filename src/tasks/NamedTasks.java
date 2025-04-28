@@ -25,7 +25,7 @@ public class NamedTasks extends Tasks {
     	public String[] nameOrder() {
     	    int[] order = super.order();
     	    
-    	    if (order == null) {
+    	    if (order == null) { //found circle
     	        return null;
     	    }
     	    
