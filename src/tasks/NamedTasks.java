@@ -27,7 +27,7 @@ public class NamedTasks extends Tasks {
 		for(int i=0; i<names.length; i++) {
 			
 			if(names[i].equals(task)) {
-				return i
+				return i;
 			}
 			
 		return -1;
@@ -38,5 +38,7 @@ public class NamedTasks extends Tasks {
 		
 		
 	}
+
+}
 
 }
