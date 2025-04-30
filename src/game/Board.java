@@ -97,11 +97,11 @@ public class Board {
 		    Player current = get(i, j);
 		    int count = 0;
 		    if(isInBoard(i,j)) {
-		    	for()
+		    	
 		    }
 		    
 		    else {
-		    	System.out.print("nnot in board");
+		    	System.out.print("not in board");
 		    	return 0;
 		    }
 		  
