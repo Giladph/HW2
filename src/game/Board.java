@@ -101,7 +101,7 @@ public class Board {
 		    }
 		    
 		    else {
-		    	System.out.print("not in board");
+		    	System.out.print("nnot in board");
 		    	return 0;
 		    }
 		  
