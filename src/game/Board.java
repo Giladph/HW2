@@ -63,10 +63,36 @@ public class Board {
 	}
 	
 	
-//	protected int maxLineContainin(int i, int j) {
-//		
-//	}
-	
+	protected int maxLineContaining(int i, int j) {
+	    if (!isInBoard(i, j) || isEmpty(i, j)) {
+	        return 0;
+	    }
+
+	    int max = 0;
+
+	    int h = rayLength(i, j, 0, 1) + rayLength(i, j, 0, -1) + 1;
+	    if (h > max) {
+	        max = h;
+	    }
+
+	    int v = rayLength(i, j, 1, 0) + rayLength(i, j, -1, 0) + 1;
+	    if (v > max) {
+	        max = v;
+	    }
+
+	    int d1 = rayLength(i, j, 1, 1) + rayLength(i, j, -1, -1) + 1;
+	    if (d1 > max) {
+	        max = d1;
+	    }
+
+	    int d2 = rayLength(i, j, 1, -1) + rayLength(i, j, -1, 1) + 1;
+	    if (d2 > max) {
+	        max = d2;
+	    }
+
+	    return max;
+	}
+
 
 	
 	public static void main(String[] args) {
