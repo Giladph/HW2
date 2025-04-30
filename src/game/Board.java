@@ -90,23 +90,22 @@ public class Board {
 
 	
 	private int rayLength(int i, int j, int di, int dj) {
-		 if (di == 0 && dj == 0) return 0;
-		 if (!isInBoard(i, j) || isEmpty(i, j)) return 0;
+	    if (di == 0 && dj == 0) return 0;
+	    if (!isInBoard(i, j) || isEmpty(i, j)) return 0;
 
-		    
-		    Player current = get(i, j);
-		    int count = 0;
-		    if(isInBoard(i,j)) {
-		    	
-		    }
-		    
-		    else {
-		    	System.out.print("not in board");
-		    	return 0;
-		    }
-		  
-		    
-		    
+	    Player current = get(i, j);
+	    int count = 0;
+
+	    i += di;
+	    j += dj;
+
+	    while (isInBoard(i, j) && get(i, j) == current) {
+	        count++;
+	        i += di;
+	        j += dj;
+	    }
+
+	    return count;
 	}
 
 }
