@@ -1,40 +1,35 @@
 package tree;
 
 public class Node {
-    private int count;
-    private Node[] children = new Node[(int) 'z' - (int) 'a' + 1];
+	private int count = 0; // number of times a word ends at this node
+	private Node[] children = new Node['z' - 'a' + 1]; // 26 lowercase letters
 
-    // Returns the number of times the word s has appeared in the tree
-    public int num(String s) {
-        if (s.isEmpty()) {
-            return count; // If the string is empty, return the count of the current node
-        }
+	// returns the count of how many times the given word was added
+	public int num(String s) {
+		int index = s.charAt(0) - 'a';
 
-        Node current = this;
-        char c = s.charAt(0);  // Take the first character
-        int index = c - 'a';   // Convert the character to an index
+		if (children[index] == null) return 0;
 
-        if (current.children[index] == null) {
-            return 0; // If no matching child node exists, return 0
-        }
+		if (s.length() == 1) {
+			return children[index].count;
+		} else {
+			return children[index].num(s.substring(1));
+		}
+	}
 
-        // Continue recursively, removing the first character from the string
-        return current.children[index].num(s.substring(1));  // Using substring
-    }
+	// adds the given word to the trie by creating nodes along the path
+	public void add(String s) {
+		if (!s.isEmpty()) {
+			int index = s.charAt(0) - 'a';
 
-    // Adds the word s to the tree
-    public void add(String s) {
-        Node current = this;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);  // Get the current character
-            int index = c - 'a';   // Convert the character to an index
+			if (children[index] == null)
+				children[index] = new Node();
 
-            if (current.children[index] == null) {
-                current.children[index] = new Node(); // Create a new node if it doesn't exist
-            }
-
-            current = current.children[index];  // Move to the next node
-        }
-        current.count++;  // Increment the count for the word at this node
-    }
+			if (s.length() == 1) {
+				children[index].count++;
+			} else {
+				children[index].add(s.substring(1));
+			}
+		}
+	}
 }

@@ -4,27 +4,27 @@ import java.util.Scanner;
 
 public class Game extends Board {
 	
-    protected Player[] players;
-    protected Scanner s;  
+    protected Player[] players; // array of 2 players
+    protected Scanner s;        // for reading input from user
     
+    // constructor - initializes board and players
     public Game(int n, int m, Player p1, Player p2) {
-    	super(n,m);
-    	this.players= new Player[2];
-    	this.players[0]=p1;
-    	this.players[1]=p2;
-    	this.s=new Scanner(System.in);
+    	super(n, m);
+    	this.players = new Player[2];
+    	this.players[0] = p1;
+    	this.players[1] = p2;
+    	this.s = new Scanner(System.in);
     }
     
-    
-    
+    // checks if the move at (i,j) is a winning move
     protected boolean doesWin(int i, int j) {
-    	if(i==0 && j==0) {
+    	if (i == 0 && j == 0) {
     		return true;
     	}
     	return false;
     }
     
-    
+    // handles one move for the given player
     protected boolean onePlay(Player p) {
         int i, j;
 
@@ -40,13 +40,14 @@ public class Game extends Board {
             }
         }
 
-        set(i, j, p); // מציב את השחקן בלוח אם פנוי
+        set(i, j, p); // set the player on the board
 
-        System.out.println(this); // מדפיס את הלוח לפי toString()
+        System.out.println(this); // print the current state of the board
 
-        return doesWin(i, j); // מחזיר האם זה מהלך מנצח
+        return doesWin(i, j); // return true if the move wins
     }
     
+    // main game loop - returns the winner or null if board is full
     public Player play() {
         int turn = 0;
 
@@ -56,23 +57,14 @@ public class Game extends Board {
                 return null;
             }
 
-            Player current = players[turn % 2];
+            Player current = players[turn % 2]; // alternate between the two players
 
             if (onePlay(current)) {
-                System.out.printf("Congratulations %s! You won!\n", current.getName());
+                System.out.printf("%s (%s) Won!\n", current.getName(), current.getMark());
                 return current;
             }
 
             turn++;
         }
     }
-    
-    
-
-    }
-
-
-    
-
-
-
+}

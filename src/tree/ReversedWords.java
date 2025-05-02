@@ -1,36 +1,38 @@
 package tree;
+
 import java.util.Scanner;
 
 public class ReversedWords {
 
-    public static int checkReversed() {
-        Scanner scanner = new Scanner(System.in);
-        Node root = new Node(); // Create the tree
-        int count = 0;
+	// reads words from user until "X", counts how many are reverse of a previous one
+	public static int checkReversed() {
+		Node root = new Node();
+		int countString = 0;
+		Scanner scanner = new Scanner(System.in);
+		String checkInput = scanner.next();
 
-        while (true) {
-            String word = scanner.nextLine();
-            if (word.equals("X")) {
-                break; // Exit when "X" is entered
-            }
+		while (!checkInput.equals("X")) {
+			if (!checkInput.equals(" ") && !checkInput.equals("")) {
+				String reverseWord = reverseString(checkInput);
 
-            String reversedWord = reverseString(word); // Reverse the word using substring
-            if (root.num(reversedWord) > 0) {
-                count++; // If the reversed word is already in the tree, count it
-            }
+				if (root.num(checkInput) == 0) {
+					root.add(reverseWord);
+				} else {
+					countString++;
+				}
+			}
+			checkInput = scanner.next();
+		}
 
-            root.add(word); // Add the word to the tree
-        }
+		scanner.close();
+		return countString;
+	}
 
-        scanner.close();
-        return count; // Return the count of words found in reverse
-    }
-
-    // Reverses the word using substring (without StringBuilder)
-    private static String reverseString(String s) {
-        if (s.isEmpty()) {
-            return "";
-        }
-        return reverseString(s.substring(1)) + s.charAt(0); // Recursive call and append the first character
-    }
+	// returns the reversed version of the input string
+	private static String reverseString(String checkInput) {
+		StringBuilder reverseStringBuilder = new StringBuilder();
+		for (int i = checkInput.length() - 1; i >= 0; i--)
+			reverseStringBuilder.append(checkInput.charAt(i));
+		return reverseStringBuilder.toString();
+	}
 }
