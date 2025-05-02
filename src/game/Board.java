@@ -54,7 +54,7 @@ public class Board {
 	            } else {
 	                sb.append(board[i][j].getMark()); // מניח ש־Player עצמו יודע להחזיר משהו ב־toString
 	            }
-	            sb.append(" "); // רווח בין תאים
+	     
 	        }
 	        sb.append("\n"); // ירידת שורה בסוף כל שורה
 	    }
@@ -95,18 +95,8 @@ public class Board {
 
 
 	
-	public static void main(String[] args) {
-		Player p1 = new Player("Bibi", 'O');
-		Player p2 = new Player("Gantz", 'X');
-		Board b = new Board(3,3);
-		b.set(0, 0, p1);
-		b.set(1, 0, p1);
-		b.set(2, 2, p2);
-		b.set(0, 0, p2);
-		b.set(0, 1, p1);
-		System.out.print(b);
-
- 	}
+	
+ 	
 	
 	
 	private boolean isInBoard(int i, int j) {

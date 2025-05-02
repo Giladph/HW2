@@ -26,14 +26,53 @@ public class Game extends Board {
     
     
     protected boolean onePlay(Player p) {
-    	
-       String.format("%s(%s), please enter row and coloumn: ",p.getName(),p.getMark());
-       
-       int i= s.nextInt();
-       int j=s.nextInt();
-       
-       
-       
-       return doesWin(i, j);
+        int i, j;
+
+        while (true) {
+            System.out.printf("%s (%s), please enter row and column: ", p.getName(), p.getMark());
+            i = s.nextInt();
+            j = s.nextInt();
+
+            if (isEmpty(i, j)) {
+                break;
+            } else {
+                System.out.println("That position is already taken. Please try again.");
+            }
+        }
+
+        set(i, j, p); // מציב את השחקן בלוח אם פנוי
+
+        System.out.println(this); // מדפיס את הלוח לפי toString()
+
+        return doesWin(i, j); // מחזיר האם זה מהלך מנצח
     }
-}
+    
+    public Player play() {
+        int turn = 0;
+
+        while (true) {
+            if (isFull()) {
+                System.out.println("The board is full. No winner.");
+                return null;
+            }
+
+            Player current = players[turn % 2];
+
+            if (onePlay(current)) {
+                System.out.printf("Congratulations %s! You won!\n", current.getName());
+                return current;
+            }
+
+            turn++;
+        }
+    }
+    
+    
+
+    }
+
+
+    
+
+
+
